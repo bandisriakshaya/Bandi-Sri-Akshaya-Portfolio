@@ -2,6 +2,8 @@
 
 Simple HTML, CSS, and JavaScript portfolio website.
 
+Live at: https://bandisriakshaya.github.io/Bandi-Sri-Akshaya-Portfolio/
+
 ## Files
 
 - `index.html` - Main HTML file
