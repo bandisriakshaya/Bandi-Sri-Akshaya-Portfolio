@@ -1258,6 +1258,7 @@ body {
     margin-bottom: 12px;
     margin-left: 16px;
     margin-right: 16px;
+    flex-wrap: wrap;
   }
 
   .mobile-portfolio-title {
@@ -1266,10 +1267,14 @@ body {
     color: #10b981;
     margin: 0;
     letter-spacing: -0.01em;
+    flex: 1;
+    text-align: center;
+    min-width: 0;
   }
 
   .mobile-title-dropdown {
     position: relative;
+    flex-shrink: 0;
   }
 
   .mobile-title-dropdown-btn {
@@ -1285,6 +1290,7 @@ body {
     transition: all 0.3s;
     min-width: 32px;
     height: 32px;
+    font-size: 12px;
   }
 
   .mobile-title-dropdown-btn:hover,
