@@ -236,7 +236,13 @@ document.addEventListener('keydown', (e) => {
 
 function downloadResume() {
   const link = document.createElement('a');
-  const basePath = window.location.pathname.includes('/Bandi-Sri-Akshaya-Portfolio') ? '/Bandi-Sri-Akshaya-Portfolio/' : '/';
+  const pathname = window.location.pathname;
+  let basePath = '/';
+  
+  if (pathname.includes('/Bandi-Sri-Akshaya-Portfolio')) {
+    basePath = '/Bandi-Sri-Akshaya-Portfolio/';
+  }
+  
   link.href = basePath + 'public/Bandi_Sri_Akshaya_Resume.pdf';
   link.download = 'Bandi_Sri_Akshaya_Resume.pdf';
   document.body.appendChild(link);
