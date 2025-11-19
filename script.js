@@ -236,7 +236,7 @@ document.addEventListener('keydown', (e) => {
 
 function downloadResume() {
   const link = document.createElement('a');
-  link.href = '/Bandi-Sri-Akshaya-Portfolio/public/Bandi_Sri_Akshaya_Resume.pdf';
+  link.href = 'public/Bandi_Sri_Akshaya_Resume.pdf';
   link.download = 'Bandi_Sri_Akshaya_Resume.pdf';
   document.body.appendChild(link);
   link.click();
