@@ -5,6 +5,7 @@ const projects = [
     category: "Machine Learning",
     description: "Research project enhancing CKD detection using hybrid ML models with Explainable AI techniques",
     longDescription: "A research project at University of Malaya focusing on enhancing Chronic Kidney Disease Detection using Machine Learning. Developed a hybrid machine learning model integrating Random Forest and XGBoost to enhance CKD detection accuracy. Implemented Explainable AI (XAI) techniques such as SHAP to improve model interpretability for clinicians. Optimized ensemble weighting through empirical validation, achieving improved model performance with a 39:61 ratio favoring XGBoost.",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop&crop=center",
     link: "#",
     technologies: ["Python", "XGBoost", "Random Forest", "SHAP", "Scikit-Learn", "NumPy", "Pandas"],
     gradient: "from-blue-600 to-blue-800",
@@ -24,6 +25,7 @@ const projects = [
     category: "Machine Learning",
     description: "Predictive models using XGBoost and Transformers for early detection of chronic nephrology diseases",
     longDescription: "Developed predictive models using XGBoost and Transformers to enhance early detection and intervention strategies for chronic nephrology-related diseases, achieving an overall accuracy of 98.9%. Applied advanced data preprocessing and feature engineering techniques to optimize performance and robustness. Implemented model evaluation metrics, including AUC-ROC and precision-recall curves, ensuring reliable clinical applicability.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center",
     link: "#",
     technologies: ["Python", "XGBoost", "Transformers", "TensorFlow", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib"],
     gradient: "from-blue-600 to-blue-800",
@@ -43,6 +45,7 @@ const projects = [
     category: "Full Stack",
     description: "Full-stack college interface application with MongoDB and SQL database integration",
     longDescription: "Designed and implemented a comprehensive college interface app with MongoDB (NoSQL) and SQL database schemas to manage student data, improving data retrieval speed by 30%. Designed an intuitive user interface using Figma, increasing user engagement and interaction with college resources by about 40%. Integrated SQL databases for robust data management, improving data retrieval efficiency by approximately 30%.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=center",
     link: "#",
     technologies: ["Figma", "MongoDB", "SQL", "JavaScript", "HTML", "CSS", "Bootstrap"],
     gradient: "from-purple-600 to-purple-800",
@@ -146,11 +149,12 @@ function renderProjects() {
                        project.status === 'Development' ? 'status-dev' : 'status-beta';
 
     card.innerHTML = `
+      <div class="project-image">
+        <img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'">
+        <div class="project-badge">${project.category}</div>
+        <div class="project-status ${statusClass}">${project.status}</div>
+      </div>
       <div class="project-content">
-        <div class="project-header">
-          <div class="project-badge">${project.category}</div>
-          <div class="project-status ${statusClass}">${project.status}</div>
-        </div>
         <h3 class="project-title">${project.title}</h3>
         <p class="project-description">${project.description}</p>
         <div class="project-tech">
@@ -263,29 +267,15 @@ function handleSubmit(e) {
   }
 }
 
-function toggleMobileMenu() {
-  const navLinks = document.getElementById('navLinks');
-  const menuToggle = document.querySelector('.mobile-menu-toggle');
-  navLinks.classList.toggle('mobile-menu-active');
-  menuToggle.classList.toggle('active');
-}
-
-function closeMobileMenu() {
-  const navLinks = document.getElementById('navLinks');
-  const menuToggle = document.querySelector('.mobile-menu-toggle');
-  navLinks.classList.remove('mobile-menu-active');
-  menuToggle.classList.remove('active');
-}
-
 function toggleDropdown(button) {
   const dropdown = button.nextElementSibling;
   const isOpen = dropdown.style.display === 'block';
   
   // Close all dropdowns first
-  document.querySelectorAll('.mobile-dropdown-content').forEach(content => {
+  document.querySelectorAll('.mobile-title-dropdown-content').forEach(content => {
     content.style.display = 'none';
   });
-  document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+  document.querySelectorAll('.mobile-title-dropdown-btn').forEach(btn => {
     btn.classList.remove('active');
   });
   
@@ -298,11 +288,11 @@ function toggleDropdown(button) {
 
 // Close dropdowns when clicking outside
 document.addEventListener('click', function(event) {
-  if (!event.target.closest('.mobile-dropdown')) {
-    document.querySelectorAll('.mobile-dropdown-content').forEach(content => {
+  if (!event.target.closest('.mobile-title-dropdown')) {
+    document.querySelectorAll('.mobile-title-dropdown-content').forEach(content => {
       content.style.display = 'none';
     });
-    document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+    document.querySelectorAll('.mobile-title-dropdown-btn').forEach(btn => {
       btn.classList.remove('active');
     });
   }
